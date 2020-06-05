@@ -7,7 +7,7 @@
                 choice(name: 'Environnement', choices: ['localhost', 'r2', 'i1', 'r1', 'r3'], description: 'Environnement sur lequel sont joués les tests')
             ]),
             buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '10', daysToKeepStr: '5', numToKeepStr: '10')),
-            pipelineTriggers([cron('0 15 * * 1-5')])
+            pipelineTriggers([cron('H 15 * * 1-5')])
         ])
 
         checkout scm
@@ -24,8 +24,8 @@
                 /bin/bash
         */
         docker.image("cypress/base:14.0.0")
-            .inside("-v /tmp/build/docker-volumes/npm-cache:/.npm " +
-                    "-v /tmp/build/docker-volumes/cypress-cache:/.cache " +
+            .inside("-v /tmp/build/docker-volumes/npm-cache:/.npm " + //$WORKSPACE au lieu de /tmp
+                    "-v /tmp/build/docker-volumes/cypress-cache:/.cache " + //$WORKSPACE au lieu de /tmp
                     "-e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true " +
                     "-e HOME=/tmp/home "
             ) 
