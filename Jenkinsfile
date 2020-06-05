@@ -1,7 +1,7 @@
 #!groovy
 
-enhanceLog {
-    node("docker"){
+
+    }
         properties([
             parameters([
                 choice(name: 'Environnement', choces: ['localhost', 'r2', 'i1', 'r1', 'r3'], description: 'Environnement sur lequel jouer les tests')
@@ -49,4 +49,3 @@ enhanceLog {
                 junit testResults: '**/reports/**/*.xml', allowEmptyResults: true
             }
     }
-}
