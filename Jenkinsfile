@@ -46,7 +46,7 @@ enhanceLog {
                         }
                     }
                 }
-                junit testResults: '**/reports/**/*.xml,' allowEmptyResults: true
+                junit testResults: '**/reports/**/*.xml', allowEmptyResults: true
             }
     }
 }
