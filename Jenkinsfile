@@ -4,7 +4,7 @@
     node("docker") {
         properties([
             parameters([
-                choice(name: 'Environnement', choces: ['localhost', 'r2', 'i1', 'r1', 'r3'], description: 'Environnement sur lequel jouer les tests')
+                choice(name: 'Environnement', choces: ['localhost', 'r2', 'i1', 'r1', 'r3'], description: 'Environnement sur lequel sont joués les tests')
             ]),
             buildDiscarder(logRotator(artifactDayToKeepStr: '', artifactNumToKeepStr: '', dayToKeepStr: '5', numToKeepStr: '10')),
             pipelineTriggers([cron('0 15 * * 1-5')])
