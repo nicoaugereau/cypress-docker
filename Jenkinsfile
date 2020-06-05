@@ -28,21 +28,25 @@
                     "-v $WORKSPACE/build/docker-volumes/cypress-cache:/.cache " +
                     "-e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true " +
                     "-e HOME=/tmp/home "
-            ) {
+            ) 
+            {
                 stage('Install') {
                     timestamps {
                         ansiColor('xterm') {
                             sh 'rm -Rf reports/ || true'
                             sh 'mkdir -p $HOME'
-                            sh ' npm ci'
-                            //sh 'npm run cypress:verify
+                            sh 'npm ci'
+                            sh 'npm run cypress:verify'
                         }
                     }
                 }
                 stage('Tests Cypress') {
                     timestamps {
                         ansiColor('xterm') {
-                            sh 'npm run cypress:${params.Environnement}'
+                            def testExitCode = sh script: "npm run cypress:${params.Environnement}", returnStatus: true
+                            if(testExitCode) {
+                                currentBuild.result = 'UNSTABLE'
+                            }
                         }
                     }
                 }
