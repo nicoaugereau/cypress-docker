@@ -4,7 +4,7 @@
     node {
         properties([
             parameters([
-                choice(name: 'Environnement', choces: ['localhost', 'r2', 'i1', 'r1', 'r3'], description: 'Environnement sur lequel sont joués les tests')
+                choice(name: 'Environnement', choices: ['localhost', 'r2', 'i1', 'r1', 'r3'], description: 'Environnement sur lequel sont joués les tests')
             ]),
             buildDiscarder(logRotator(artifactDayToKeepStr: '', artifactNumToKeepStr: '', dayToKeepStr: '5', numToKeepStr: '10')),
             pipelineTriggers([cron('0 15 * * 1-5')])
@@ -47,7 +47,7 @@
                             if(testExitCode) {
                                 currentBuild.result = 'UNSTABLE'
                             }
-                        }
+                            }
                     }
                 }
                 junit testResults: '**/reports/**/*.xml', allowEmptyResults: true
