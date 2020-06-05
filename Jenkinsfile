@@ -6,7 +6,7 @@
             parameters([
                 choice(name: 'Environnement', choices: ['localhost', 'r2', 'i1', 'r1', 'r3'], description: 'Environnement sur lequel sont joués les tests')
             ]),
-            buildDiscarder(logRotator(artifactDayToKeepStr: '5', artifactNumToKeepStr: '10', dayToKeepStr: '5', numToKeepStr: '10')),
+            buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '10', daysToKeepStr: '5', numToKeepStr: '10')),
             pipelineTriggers([cron('0 15 * * 1-5')])
         ])
 
