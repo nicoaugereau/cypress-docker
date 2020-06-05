@@ -42,7 +42,7 @@ enhanceLog {
                 stage('Tests Cypress') {
                     timestamps {
                         ansiColor('xterm') {
-                            sh 'npm run cypress:${params.Environnement}"
+                            sh 'npm run cypress:${params.Environnement}'
                         }
                     }
                 }
