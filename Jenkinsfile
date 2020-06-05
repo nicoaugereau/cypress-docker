@@ -24,8 +24,8 @@
                 /bin/bash
         */
         docker.image("cypress/base:14.0.0")
-            .inside("-v $WORKSPACE/build/docker-volumes/npm-cache:/.npm " +
-                    "-v $WORKSPACE/build/docker-volumes/cypress-cache:/.cache " +
+            .inside("-v /tmp/build/docker-volumes/npm-cache:/.npm " +
+                    "-v /tmp/build/docker-volumes/cypress-cache:/.cache " +
                     "-e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true " +
                     "-e HOME=/tmp/home "
             ) 
