@@ -1,7 +1,7 @@
 # https://nodejs.org/fr/docs/guides/nodejs-docker-webapp/
 # https://tutorials.releaseworksacademy.com/learn/building-your-first-docker-image-with-jenkins-2-guide-for-developers
 
-FROM node:14.0.0
+FROM node:12.18.0
 
 # set a health check
 HEALTHCHECK --interval=5s \
