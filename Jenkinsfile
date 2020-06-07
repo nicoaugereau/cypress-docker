@@ -33,6 +33,7 @@
                 stage('Install') {
                     timestamps {
                         ansiColor('xterm') {
+                            sh 'pwd'
                             //sh 'rm -Rf reports/ || true'
                             sh 'mkdir -p $HOME'
                             sh 'npm ci'
