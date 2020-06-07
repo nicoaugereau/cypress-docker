@@ -26,7 +26,7 @@
         docker.image("cypress/base:14.0.0")
             .inside("-v $WORKSPACE/build/docker-volumes/npm-cache:/.npm " +
                     "-v $WORKSPACE/build/docker-volumes/cypress-cache:/.cache " +
-                    "-e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true " +
+                    "-e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true " +   
                     "-e HOME=/tmp/home "
             ) 
             {
@@ -35,7 +35,7 @@
                         ansiColor('xterm') {
                             sh 'rm -Rf reports/ || true'
                             sh 'mkdir -p $HOME'
-                            sh 'npm ci'
+                            //sh 'npm ci'
                             sh 'npm run cypress:verify'
                         }
                     }
