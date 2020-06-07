@@ -36,7 +36,7 @@
                             sh 'rm -Rf reports/ || true'
                             sh 'mkdir -p $HOME'
                             //sh 'npm ci'
-                            sh 'npm run cypress:verify'
+                            //sh 'npm run cypress:verify'
                         }
                     }
                 }
