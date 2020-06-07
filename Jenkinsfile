@@ -33,10 +33,10 @@
                 stage('Install') {
                     timestamps {
                         ansiColor('xterm') {
-                            sh 'rm -Rf reports/ || true'
+                            //sh 'rm -Rf reports/ || true'
                             sh 'mkdir -p $HOME'
-                            //sh 'npm ci'
-                            //sh 'npm run cypress:verify'
+                            sh 'npm ci'
+                            sh 'npm run cypress:verify'
                         }
                     }
                 }
