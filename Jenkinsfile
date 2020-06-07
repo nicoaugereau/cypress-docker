@@ -1,5 +1,7 @@
 #!groovy
+pipeline {
 
+    agent { node { label 'docker' } }
 
     node {
         properties([
@@ -54,3 +56,4 @@
                 junit testResults: '**/reports/**/*.xml', allowEmptyResults: true
             }
     }
+}
