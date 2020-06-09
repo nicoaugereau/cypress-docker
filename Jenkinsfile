@@ -13,5 +13,21 @@ pipeline {
                 sh 'svn --version'
             }
         }
+        publishHTML (target: [
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'reports/mochareports',
+                    reportFiles: 'reports.html',
+                    reportName: "Mochawesome testsReport"
+                ])
+                publishHTML (target: [
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'reports/cucumberreports',
+                    reportFiles: 'index.html',
+                    reportName: "Cucumber testsReport"
+                ])
     }
 }   

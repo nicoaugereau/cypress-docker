@@ -13,7 +13,7 @@
     "generate-report": "marge reports/mochareports/report.json -f report -o reports/mochareports",
     "postcypress:test": "npm run combine-reports && npm run generate-report",
     "cypress:test": "npm run cypress:js || npm run postcypress:test",
-    "clean:cucumberreports": "rmdir -r reports/cucumberreports && mkdir reports/cucumberreports",
+    "clean:cucumberreports": "rm -rf reports/cucumberreports && mkdir reports/cucumberreports",
     "precypress:feature": "npm run clean:cucumberreports",
     "cypress:cucumber": "cypress run --spec **/*.feature",
     "cucumber-report": "node ./cucumber-report.js",
