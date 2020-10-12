@@ -1,8 +1,11 @@
+var shell = require('shelljs');
 
 let pdffile ="20-05-2020-attestation-de-deplacement-international-derogatoire-provenance-europe-fr.pdf";
 
 describe("Telechargement fichier PDF et controle nombre de pages", async () => {
     before (function () {
+
+        shell.chmod(755, '/Users/nicolasaugereau/Downloads/ci/toto/*')
 
     })
 
