@@ -1,15 +1,6 @@
 /**
- * Cas passant non régression
+ * Cas passant téléchargement pdf et controle pages
  */
-
-import { ui } from '../../pages/commun'
-import { user } from '../../pages/accueil'
-
-//** INPUTS du cas de test **//
-//** -_-_-_-_-_-_-_-_-_-_- **//
-const site = 'frontend'
-const profil = 'standard'
-//** -_-_-_-_-_-_-_-_-_-_- **//
 
 /**
  * describe(name, config, fn)
@@ -18,24 +9,21 @@ const profil = 'standard'
  * specify(name, config, fn)
  */
 
-context(`Valider un parcours d'achats`, async () => {
-  describe('Identification utilisateur standard ', async () => {
+context(`Télécharger un pdf et contrôler le nombre de pages`, async () => {
     before(function () {
         
     })
 
-    it(`l'utilisateur visite le "front"`, () => {
-      ui.web = site
+    it(`Affichage de la page de conseil pour un bon mot de passe`, () => {
+        cy.visit('https://www.economie.gouv.fr/particuliers/se-proteger-demarchage-abusif')
     })
 
-    it(`l'utilisateur n'est pas identifié`, () => {
-      user.login = profil
+    it(`Téléchargement du fichier pdf`, () => {
+        cy.get('.pdf').click()
     })
 
     it(`je suis identifié`, () => {
-      user.status = 'identifié'
     })
-  })
 })
 
 /*
