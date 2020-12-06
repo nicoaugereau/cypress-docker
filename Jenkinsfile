@@ -6,11 +6,20 @@ pipeline {
                 sh "echo $WORKSPACE"
             }
         }
-        stage('Test') {
+        stage('Install') {
             steps {
                 sh 'pwd'
                 sh 'node --version'
                 sh 'svn --version'
+                sh 'rm -Rf reports/ || true'
+                sh 'mkdir -p $HOME'
+                sh 'npm ci'
+                sh 'npm run cypress:verify'
+            }
+        }
+        stage('Tests Cypress') {
+            steps {
+                sh script: "npm run cypress:${params.Environnement}"
             }
         }
         publishHTML (target: [
@@ -19,7 +28,7 @@ pipeline {
             keepAll: true,
             reportDir: 'reports/mochareports',
             reportFiles: 'reports.html',
-            reportName: "Mochawesome testsReport"
+            reportName: "Mochawesome Tests Report"
         ])]
         publishHTML (target: [
             allowMissing: true,
@@ -27,7 +36,7 @@ pipeline {
             keepAll: true,
             reportDir: 'reports/cucumberreports',
             reportFiles: 'index.html',
-            reportName: "Cucumber testsReport"
+            reportName: "Cucumber Tests Report"
         ])
     }
 }   

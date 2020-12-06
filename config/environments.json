@@ -1,0 +1,12 @@
+{
+    "local": {
+        "backend": "http://localhost:3000/admin",
+        "frontend": "http://localhost:3000/",
+        "api": "http://localhost/"
+    },
+    "internet": {
+        "backend": "https://www.saucedemo.com/index.php",
+        "frontend": "https://www.saucedemo.com/",
+        "api": "https://restful-booker.herokuapp.com/"
+    }
+}

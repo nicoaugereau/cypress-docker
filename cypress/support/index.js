@@ -15,19 +15,38 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './envoiflux'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 require('cypress-xpath')
 
-Cypress.on('fail', (error,runnable) => {
-    debugger
-    // we now have access to the err instance
-    // and the mocha runnable this failed on
-    throw error // throw error to have test still fail
-})
-Cypress.on('uncaught:exception', (err,runnable) => {
+
+Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the test
     return false
+})
+
+function abortEarly() {
+    if (this.currentTest.state === 'failed') {
+        debugger
+        return cy.task('shouldSkip', true)
+    }
+    cy.task('shouldSkip').then(value => {
+        if (value) this.skip()
+    })
+}
+
+beforeEach(abortEarly)
+afterEach(abortEarly)
+
+before(() => {
+    cy.task('resetShouldSkipFlag')
+    //Clear downloads folder
+    cy.task('clearFolder', 'cypress/downloads')
+})
+
+after(() => {
+    cy.clearCookies()
 })

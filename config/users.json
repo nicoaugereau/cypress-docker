@@ -1,0 +1,31 @@
+{
+  "users": {
+      "administrateur": {
+        "civilite": "Monsieur",
+        "email": "jim.parson@yopmail.com",
+        "nom": "PASRON",
+        "prenom": "Jim",
+        "telephone": "+33612345679"
+      },
+      "contributeur": {
+          "civilite": "Madame",
+          "email": "kaley.cuoco@yopmail.com",
+          "nom": "CUOCO",
+          "prenom": "Kaley",
+          "telephone": "+33612345679"
+      },
+      "utilisateur": {
+          "civilite": "Monsieur",
+          "email": "johnny.galecki@yopmail.com",
+          "nom": "GALECKI",
+          "prenom": "Johnny",
+          "telephone": "+33612345679"
+      }
+  },
+  "services":{
+    "restful-booker": {
+      "username": "admin",
+      "password": "password123"
+    }
+  }  
+}
